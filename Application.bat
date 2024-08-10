@@ -11,7 +11,7 @@ title Login
 :: Define users, passwords, and actual names
 set users[1]=1
 set passwords[1]=1
-set names[1]=Admin Lolla  
+set names[1]=REGz.WALKER      
 
 set users[2]=walker
 set passwords[2]=walker#1234
@@ -43,11 +43,11 @@ set names[8]=ᴰᴬᴿᴷ xINDU
 
 set users[9]=user9
 set passwords[9]=password9
-set names[9]=User Nine
+set names[9]=User Nine         
 
 set users[10]=user10
 set passwords[10]=password10
-set names[10]=User Ten
+set names[10]=User Ten          
 
 :: Set max length for the name display
 set maxLength=25
