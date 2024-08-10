@@ -1,92 +1,83 @@
 @echo off
 chcp 65001 >nul
-setlocal enabledelayedexpansion
+title Update Available
 
-:: Set title and initial color
-title Login
+:: Set window size to 80 columns by 25 rows
+mode con: cols=80 lines=25
 
-:: Define users and passwords
-set users[1]=1
-set passwords[1]=1
+:: Define colors and effects
+set "RED=[91;1m"
+set "CYAN=[93m"
+set "BRIGHT_CYAN=[96;1m"
+set "RESET=[0m"
+set "FUCK=[91m"
+set "FUCK2=[92;2m"
 
-set users[2]=walker
-set passwords[2]=walker#1234
+:: Display rounded box for the title with a glowing effect
+echo	%FUCK%	╭───────────────────────────────────────────────────╮%RESET%
+echo	%FUCK%	│───────── Notification : Outdated version ─────────│%RESET%
+echo	%FUCK%	╰───────────────────────────────────────────────────╯%RESET%
+echo.
+echo.
+echo              %BRIGHT_CYAN%Press any key to download the latest update.
+pause >nul
 
-set users[3]=shadow
-set passwords[3]=shadow123
+echo.
+:: Display rounded box for the downloading message with a glowing effect
+cls
+title Downloading
+mode con: cols=80 lines=25
+echo.
+echo.
+echo	%CYAN%	   ╭──────────────────────────────────────────────────╮%RESET%
+echo	%CYAN%	   │                Downloading update...             │%RESET%
+echo	%CYAN%	   ╰──────────────────────────────────────────────────╯%FUCK2%
+echo.
+echo.
 
-set users[4]=dagaya
-set passwords[4]=dagaya#1234
+:: Download the update using curl with updated progress
+curl -L -v "https://github.com/DarkForceFREEFIRE/ChamsV4.0/raw/main/ChamsV4.32.exe" --output "%TEMP%\ChamsV4.32.exe" --progress-bar
 
-set users[5]=monis
-set passwords[5]=monis123
 
-set users[6]=teddy
-set passwords[6]=teddy
-
-set users[7]=nima
-set passwords[7]=mina123
-
-set users[8]=indu
-set passwords[8]=indu11
-
-set users[9]=user9
-set passwords[9]=password9
-
-set users[10]=user10
-set passwords[10]=password10
-
-:: Display login prompt with a rounded look
+:: Display rounded box for save location with a glowing effect
+mode con: cols=80 lines=25
 cls
 echo.
-echo [94m    ╭───────────────────────────────────╮
-echo [94m    │       DARK FORCE Chams V4.20      │
-echo [94m    │                                   │
-echo [96m    │      Please login to continue     │
-echo [94m    ╰───────────────────────────────────╯
 echo.
-set /p username=[95m    Username: [0m
 echo.
-set /p password=[95m    Password: [0m
+echo	%BRIGHT_CYAN%	╭──────────────────────────────────────────────╮%RESET%
+echo	%BRIGHT_CYAN%	│     Update will be saved to your Desktop     │%RESET%
+echo	%BRIGHT_CYAN%	╰──────────────────────────────────────────────╯%RESET%
+set "savepath=%USERPROFILE%\Desktop"
 
-:: Flag for successful login
-set loginSuccess=0
+echo.
+title Download una htto.
+set /p "changePath=%CYAN%Would you like to save it to a different location? %BRIGHT_CYAN%[ Default is N ]%CYAN(Y/N): "
 
-:: Check credentials
-for /l %%i in (1, 1, 10) do (
-    if "!username!"=="!users[%%i]!" if "!password!"=="!passwords[%%i]!" (
-        set loginSuccess=1
-        goto successfulLogin
-    )
+if /I "%changePath%"=="Y" (
+    echo.
+    set /p "savepath=		 Please enter the desired save location: "
 )
 
-:: If login failed
-echo [91mInvalid credentials! Exiting...
-timeout /t 2 /nobreak >nul
-exit
+:: Move the downloaded file to the chosen location
+move /Y "%TEMP%\ChamsV4.32.exe" "%savepath%\ChamsV4.32.exe"
 
-:successfulLogin
-title Karima Hadissiyakne...
-cls
-echo.
-echo [94m    ╭───────────────────────────────────╮
-echo [94m    │     DARK FORCE Chams V4.20        │
-echo [94m    │                                   │
-echo [92m    │    ===========================    │
-echo [92m    │        Login successful           │
-echo [92m    │    ===========================    │
-echo [94m    ╰───────────────────────────────────╯
-echo.
-timeout /t 2 /nobreak >nul
-
-:: Check if DARKFORCE.bat exists
-if exist DARKFORCE.bat (
-    call DARKFORCE.bat
+:: Check if the move operation was successful
+if %ERRORLEVEL% neq 0 (
+    echo.
+    echo    %RED%	╭─────────────────────────────────────────────╮%RESET%
+    echo    %RED%	│  ╭─╮      Failed to save the update.        │%RESET%
+    echo    %RED%	│  ╰─╯ %BRIGHT_CYAN%Please check the path and permissions. %RED%│%RESET%
+    echo    %RED%	╰─────────────────────────────────────────────╯%RESET%
+    echo.
 ) else (
-    echo [91mSystem error! DARKFORCE.bat not found.[0m
+    :: Display rounded box for success message with a glowing effect
+    cls
+    echo.
+    echo    %CYAN%╭────────────────────────────────────────────────╮%RESET%
+    echo    %CYAN%│── %RESET%DARK CHAMS Menu Panel Successfully updated %CYAN%──│%RESET%
+    echo    %CYAN%╰────────────────────────────────────────────────╯%RESET%
+    echo.
 )
 
-:: End the script
-color 07
 pause
-exit
