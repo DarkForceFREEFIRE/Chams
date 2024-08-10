@@ -19,27 +19,27 @@ set names[2]=Gaming Walker
 
 set users[3]=shadow
 set passwords[3]=shadow123
-set names[3]=ᴰᴬᴿᴷ xSHADOW 亗
+set names[3]=ᴰᴬᴿᴷ xSHADOW  
 
 set users[4]=dagaya
 set passwords[4]=dagaya#1234
-set names[4]=D4s xDAGAYA 亗
+set names[4]=D4s xDAGAYA  
 
 set users[5]=monis
 set passwords[5]=monis123
-set names[5]=Monis++
+set names[5]=Monis++       
 
 set users[6]=teddy
 set passwords[6]=teddy
 set names[6]=GAMING TEDDY
 
 set users[7]=nima
-set passwords[7]=mina123
+set passwords[7]=nima123
 set names[7]=ᴰᴬᴿᴷ xNIMA
 
 set users[8]=indu
-set passwords[8]=indu11
-set names[8]=ᴰᴬᴿᴷ xINDU 亗
+set passwords[8]=indu
+set names[8]=ᴰᴬᴿᴷ xINDU  
 
 set users[9]=user9
 set passwords[9]=password9
