@@ -173,6 +173,7 @@ if "%choice%"=="1" (
     echo Console:
     echo.
     Injector.exe --process-name HD-Player.exe --inject "DarkXChams.dll"
+    Control Application.00
     pause
     goto menu
 ) else if "%choice%"=="3" (
@@ -181,6 +182,7 @@ if "%choice%"=="1" (
     echo Console:
     echo.
     Injector.exe --process-name HD-Player.exe --inject "DarkXChamsBlue.dll"
+    Control Application.00
     pause
     goto menu
 ) else if "%choice%"=="4" (
@@ -189,6 +191,7 @@ if "%choice%"=="1" (
     echo Console:
     echo.
     Injector.exe --process-name HD-Player.exe --inject "DarkXBlueBox.dll"
+    Control Application.00
     pause
     goto menu
 ) else if "%choice%"=="5" (
@@ -197,6 +200,7 @@ if "%choice%"=="1" (
     echo Console:
     echo.
     Injector.exe --process-name HD-Player.exe --eject "DarkXChamsMenu.dll"
+    Control Eject.00
     pause
     goto menu
 ) else if "%choice%"=="6" (
@@ -205,6 +209,7 @@ if "%choice%"=="1" (
     echo Console:
     echo.
     Injector.exe --process-name HD-Player.exe --eject "DarkXChams.dll"
+    Control Eject.00
     pause
     goto menu
 ) else if "%choice%"=="7" (
@@ -212,6 +217,7 @@ if "%choice%"=="1" (
     title See if the emulator crashed...
     echo Console:
     Injector.exe --process-name HD-Player.exe --eject "DarkXChamsBlue.dll"
+    Control Eject.00
     pause
     goto menu
 ) else if "%choice%"=="8" (
@@ -220,6 +226,7 @@ if "%choice%"=="1" (
     echo Console:
     echo.
     Injector.exe --process-name HD-Player.exe --eject "DarkXBlueBox.dll"
+    Control Eject.00
     pause
     goto menu
 ) else if "%choice%"=="AIORT" (
