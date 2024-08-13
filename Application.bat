@@ -11,7 +11,7 @@ title Login
 :: Define users, passwords, and actual names
 set users[1]=1
 set passwords[1]=1
-set names[1]=REGz.WALKER      
+set names[1]=Huttooo.           
 
 set users[2]=walker
 set passwords[2]=walker#1234
@@ -19,7 +19,7 @@ set names[2]=Gaming Walker
 
 set users[3]=shadow
 set passwords[3]=shadow123
-set names[3]=ᴰᴬᴿᴷ xSHADOW  
+set names[3]=ᴰᴬᴿᴷ xSHADOW 🖕
 
 set users[4]=dagaya
 set passwords[4]=dagaya#1234
