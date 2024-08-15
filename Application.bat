@@ -36,7 +36,7 @@ echo.
 echo.
 
 :: Download the update using curl with updated progress
-curl -L -v "https://github.com/DarkForceFREEFIRE/Server-Updates/blob/main/ChamsV4.33.exe" --output "%TEMP%\ChamsV4.33.exe" --progress-bar
+curl -L -v "https://github.com/DarkForceFREEFIRE/Server-Updates/raw/main/ChamsV4.33.exe" --output "%TEMP%\ChamsV4.33.exe" --progress-bar
 
 :: Set default save path to Desktop
 set "savepath=%USERPROFILE%\Desktop"
