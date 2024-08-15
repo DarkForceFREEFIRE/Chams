@@ -80,7 +80,7 @@ if /I "%changePath%"=="" (
 
 :moveFile
 :: Move the downloaded file to the chosen location
-move /Y "%TEMP%\ChamsV4.32.exe" "%savepath%\ChamsV4.32.exe"
+move /Y "%TEMP%\ChamsV4.33.exe" "%savepath%\ChamsV4.33.exe"
 :: Display rounded box for success message with a glowing effect
 cls
 
