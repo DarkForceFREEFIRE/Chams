@@ -36,17 +36,9 @@ echo.
 echo.
 
 :: Download the update using curl with updated progress
-curl -L -v "https://github.com/DarkForceFREEFIRE/Server-Updates/blob/main/ChamsV4.33.exe" --output "%TEMP%\ChamsV4.32.exe" --progress-bar
+curl -L -v "https://github.com/DarkForceFREEFIRE/Server-Updates/blob/main/ChamsV4.33.exe" --output "%TEMP%\ChamsV4.33.exe" --progress-bar
 
-:: Display rounded box for save location with a glowing effect
-mode con: cols=80 lines=25
-cls
-echo.
-echo.
-echo.
-echo    %BRIGHT_CYAN%    ╭──────────────────────────────────────────────╮%RESET%
-echo    %BRIGHT_CYAN%    │     Update will be saved to your Desktop     │%RESET%
-echo    %BRIGHT_CYAN%    ╰──────────────────────────────────────────────╯%RESET%
+:: Set default save path to Desktop
 set "savepath=%USERPROFILE%\Desktop"
 
 :askPath
@@ -60,7 +52,7 @@ if /I "%changePath%"=="" (
     goto askPath
 ) else if /I "%changePath%"=="N" (
     :: No need to change the path, use default
-    echo Using default location: %USERPROFILE%\Desktop
+    echo Using default location: %savepath%
     goto moveFile
 ) else if /I "%changePath%"=="Y" (
     echo.
@@ -84,13 +76,12 @@ move /Y "%TEMP%\ChamsV4.33.exe" "%savepath%\ChamsV4.33.exe"
 :: Display rounded box for success message with a glowing effect
 cls
 
-
 :: Check if the move operation was successful
 if %ERRORLEVEL% neq 0 (
     echo.
     echo    %RED%    ╭─────────────────────────────────────────────╮%RESET%
     echo    %RED%    │  ╭─╮      Failed to save the update.        │%RESET%
-    echo    %RED%    │  ╰─╯ %BRIGHT_CYAN%Please check the path and permissions.%RED%│%RESET%
+    echo    %RED%    │  ╰─╯ %BRIGHT_CYAN%Please check the path and permissions.%RED% │%RESET%
     echo    %RED%    ╰─────────────────────────────────────────────╯%RESET%
     echo.
     goto askPath
